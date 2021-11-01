@@ -1,0 +1,74 @@
+@import './variables/variables.scss';
+
+.chat_container {
+  
+  height:100vh;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat_container2{
+  border: solid 3px $color-mainconcept-blue;
+  border-radius: 10px;
+  width:80%;
+  height: 70%;
+  display: flex;
+  
+}
+
+.chat_sidebar{
+  border: solid 2px $color-mainconcept-blue;
+  width: 160px;
+}
+.chat_room{
+  border: solid 2px $color-mainconcept-blue;
+  width: 100%;
+  
+}
+
+.chat_room_show{
+  
+  height:90%;
+}
+
+.chat_room_detail{
+  
+  display: flex;
+  flex-direction: column;
+}
+
+.chat_room_image {
+  
+  font-size: 20px;
+  
+  
+  span {
+    font-size: 5px;
+    margin: 20px;
+    
+    
+  }
+}
+
+.chat_room_text{
+  
+  margin: 20px;
+  margin-top: 10px;
+}
+.chat_room_post{
+  
+  height: 60px;
+  input {
+    width: 90%;
+    height: 100%;
+    border: solid 2px $color-mainconcept-blue;
+  }
+  button {
+    width: 10%;
+    height: 100%;
+    border: solid 2px $color-mainconcept-blue;  
+    background:$color-mainconcept-blue;
+  }
+}

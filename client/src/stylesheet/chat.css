@@ -1,0 +1,63 @@
+@import url(https://use.fontawesome.com/releases/v5.15.3/css/all.css);
+.chat_container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat_container2 {
+  border: solid 3px #d0e8fb;
+  border-radius: 10px;
+  width: 80%;
+  height: 70%;
+  display: flex;
+}
+
+.chat_sidebar {
+  border: solid 2px #d0e8fb;
+  width: 160px;
+}
+
+.chat_room {
+  border: solid 2px #d0e8fb;
+  width: 100%;
+}
+
+.chat_room_show {
+  height: 90%;
+}
+
+.chat_room_detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.chat_room_image {
+  font-size: 20px;
+}
+.chat_room_image span {
+  font-size: 5px;
+  margin: 20px;
+}
+
+.chat_room_text {
+  margin: 20px;
+  margin-top: 10px;
+}
+
+.chat_room_post {
+  height: 60px;
+}
+.chat_room_post input {
+  width: 90%;
+  height: 100%;
+  border: solid 2px #d0e8fb;
+}
+.chat_room_post button {
+  width: 10%;
+  height: 100%;
+  border: solid 2px #d0e8fb;
+  background: #d0e8fb;
+}/*# sourceMappingURL=chat.css.map */

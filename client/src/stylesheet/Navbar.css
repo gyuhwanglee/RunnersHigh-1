@@ -1,0 +1,45 @@
+@font-face {
+  font-family: "HelloMornin";
+  src: url("./fonts/Hello_Mornin.ttf") format("truetype");
+}
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 90%;
+  height: 95px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 3px #d0e8fb;
+}
+
+.container a {
+  margin: 10px;
+  text-decoration: none;
+  color: #8172d5;
+}
+
+.container .navbar_link {
+  margin-right: 50px;
+  font-size: 15px;
+  display: flex;
+}
+.container .navbar_link div {
+  margin: 10px;
+  text-decoration: none;
+  color: #8172d5;
+}
+
+.container__logo {
+  font-family: "HelloMornin";
+  margin-left: 50px;
+  font-size: 20px;
+}
+
+.container .runners_High {
+  color: #958bcf;
+}/*# sourceMappingURL=Navbar.css.map */

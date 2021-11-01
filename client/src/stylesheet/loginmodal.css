@@ -1,0 +1,23 @@
+@import url(https://use.fontawesome.com/releases/v5.15.3/css/all.css);
+.loginmodal_background {
+  z-index: inherit;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginmodal_container {
+  width: 480px;
+  border: solid 1px #a7a1a1;
+  border-radius: 10px;
+  height: 500px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  box-shadow: -3px -3px 7px #ffffff73;
+  background: white;
+}/*# sourceMappingURL=loginmodal.css.map */

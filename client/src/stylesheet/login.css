@@ -1,0 +1,25 @@
+@import url(https://use.fontawesome.com/releases/v5.15.3/css/all.css);
+.login_container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.login_form {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+.login_form input {
+  height: 40px;
+  margin: 10px;
+  border: 0;
+  border-bottom: solid 1px black;
+}
+
+.login_btn {
+  align-self: center;
+  width: 358px;
+  height: 40px;
+  margin: 10px;
+}/*# sourceMappingURL=login.css.map */

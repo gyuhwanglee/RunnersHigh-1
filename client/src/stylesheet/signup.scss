@@ -1,0 +1,34 @@
+@import './variables/variables.scss';
+
+.signup_container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.signup_title {
+
+}
+
+.signup_form {
+  display: flex;
+  flex-direction: column;
+  margin : 20px;
+  input {
+    height: 40px;
+    margin : 10px;
+    border: 0;
+    border-bottom: solid 1px black;
+  }
+}
+
+.signup_btn {
+  align-self: center;
+  width : 358px;
+  height : 40px;
+  margin: 10px;
+
+}
+
+.signup_tologin {
+  
+}

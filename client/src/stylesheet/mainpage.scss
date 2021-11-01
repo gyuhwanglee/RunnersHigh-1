@@ -1,0 +1,63 @@
+.main_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  height: 100vh;
+  width:100%;
+}
+.main_svg {
+  transform: translate(50px);
+  z-index: 0;
+}
+.main_svg2 {
+  transform: translateX(-40px);
+}
+
+.main_contents_first {
+  display: flex;
+  flex-direction: column;
+  min-height: 472px;
+  min-width: 512px;
+  border: 1px solid beige;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: -1px 4px 28px 0px rgba(0, 0, 0, 0.75);
+  z-index: 1;
+  
+  .main_image {
+    margin-top: 20px;
+    align-self: center;
+    min-height: 200px;
+    min-width: 100%;
+  }
+  .main_text {
+    min-height: 180px;
+    min-width: 100%;
+    margin-left: 20px;
+    align-self: flex-start;
+  }
+  .main_footer {
+    display: flex;
+    
+    justify-content: space-between;
+    min-height: 50px;
+  }
+  .main_footer span {
+    align-self: flex-end;
+    margin: 20px;
+  }
+}
+.main_serch_div {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+  transform: translate(730px, -300px);
+  button {
+    width: 50px;
+  }
+}
+
+// <svg xmlns="http://www.w3.org/2000/svg" width="373.383" height="395.216" viewBox="0 0 373.383 395.216">
+//   <path id="패스_2916" data-name="패스 2916" d="M104.5-120.283C138.4-86.469,170.7-55.7,184.7-12.651s9.8,98.307-24.1,140.314c-33.8,41.92-97.2,70.68-164.3,73.817-67,3.225-137.7-19.086-164.1-61.093C-194.1,98.38-176,36.764-161-11.693c15.1-48.456,27.3-83.84,53.6-117.655s66.9-66.235,104.8-63.969c38,2.266,73.3,39.131,107.1,73.033" transform="translate(181.164 193.429)" fill="#afb9e2" opacity="0.43"/>
+// </svg>

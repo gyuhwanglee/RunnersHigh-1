@@ -1,0 +1,25 @@
+@import url(https://use.fontawesome.com/releases/v5.15.3/css/all.css);
+.signup_container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.signup_form {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+.signup_form input {
+  height: 40px;
+  margin: 10px;
+  border: 0;
+  border-bottom: solid 1px black;
+}
+
+.signup_btn {
+  align-self: center;
+  width: 358px;
+  height: 40px;
+  margin: 10px;
+}/*# sourceMappingURL=signup.css.map */

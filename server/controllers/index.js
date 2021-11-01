@@ -6,6 +6,7 @@ module.exports = {
   signup: require('./user/signup'),
   userinfo: require('./user/userinfo'),
   userinfoedit: require('./user/userinfoedit'),
+  userimage: require('./user/userimage'),
   // post
   mypost: require('./post/mypost'),
   ourpost: require('./post/ourpost'),

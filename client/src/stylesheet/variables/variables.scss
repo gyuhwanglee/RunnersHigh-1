@@ -1,0 +1,51 @@
+$color-modalbackground-black: rgba(0, 0, 0, 0.3);
+$color-mainconcept-blue: #d0e8fb;
+
+
+
+// 컬러
+
+@import url(https://use.fontawesome.com/releases/v5.15.3/css/all.css);
+
+// 이모티콘
+// @font-face {
+//   font-family: "HelloMornin";
+//   src: url("../fonts/Hello_Mornin.ttf") format("truetype");
+// }
+
+// 폰트
+
+
+// 버튼
+
+
+
+
+
+
+// @mixin font-face () {
+
+// }
+// @font-face {
+//   font-family: '#{$HelloMornin}' ;
+//   src: url('../fonts/#{Hello_Mornin}.ttf') format("truetype");
+// }
+// @mixin font-face($name, $file, $weight: noraml, $style: normal) {
+
+//   @font-face {
+
+//   font-family: "#{$name}";
+
+//   src: url('폰트 경로/#{$file}.woff') format('woff'),
+
+//   url('폰트 경로/#{$file}.ttf') format('truetype');
+
+//   font-weight: $weight;
+
+//   font-style: $style;
+
+//   }
+
+//   @include font-face('설정할 폰트 이름', '폰트 파일 이름');
+
+//   @include font-face('설정할 폰트 이름', '폰트 파일 이름', bold);
