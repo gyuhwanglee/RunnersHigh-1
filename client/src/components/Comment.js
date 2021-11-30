@@ -2,6 +2,7 @@ import React from 'react'
 import '../stylesheet/comment.css'
 import Avatar from '@mui/material/Avatar'
 // import Footer from './Footer'
+//124123123123
 function comment ({ comment }) {
   return (
     <div className='comment_container'>
