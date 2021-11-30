@@ -2,10 +2,9 @@ import React, { useState } from 'react'
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
-  withRouter
+  Switch
 } from 'react-router-dom'
-import Chat from './pages/Chat'
+import Chats from './pages/Chats'
 import CreatePost from './pages/CreatePost'
 import DetailPost from './pages/DetailPost'
 import EditPost from './pages/EditPost'
@@ -27,7 +26,7 @@ function App () {
   const userInfo = useSelector((state) => state.userReducer)
   const { isLogin, userinfo } = userInfo
   const postInfo = useSelector((state) => state.postReducer)
-  const [chatList, setChatList] = useState([]) // axios get
+  const [userRoom, setUserRoom] = useState([]) // axios get
   const { posts, post } = postInfo
   return (
     <div className='page_container'>
@@ -41,7 +40,7 @@ function App () {
           OpenModal={OpenModal}
           isLogin={isLogin}
           userinfo={userinfo}
-          setChatList={setChatList}
+          setUserRoom={setUserRoom}
         />
         <Switch>
           <Route path='/' exact component={Home} />
@@ -66,8 +65,13 @@ function App () {
           <Route path='/loginmodal' exact component={LoginModal} />
           <Route
             exact
-            path='/chat'
-            render={() => <Chat chatList={chatList} setChatList={setChatList} userinfo={userinfo} OpenModal={OpenModal} isLogin={isLogin} />}
+            path='/chats'
+            render={() => <Chats userRoom={userRoom} setUserRoom={setUserRoom} userinfo={userinfo} OpenModal={OpenModal} isLogin={isLogin} />}
+          />
+          <Route
+            exact
+            path='/chats/:id'
+            render={() => <Chats userRoom={userRoom} setUserRoom={setUserRoom} userinfo={userinfo} OpenModal={OpenModal} isLogin={isLogin} />}
           />
           <Route
             exact

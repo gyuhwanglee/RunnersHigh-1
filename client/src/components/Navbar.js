@@ -7,7 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import axios from 'axios'
 import { useState } from 'react'
 
-function Navbar ({ OpenModal, isLogin, userinfo, setChatList }) {
+function Navbar ({ OpenModal, isLogin, userinfo, setUserRoom }) {
   const dispatch = useDispatch()
   const history = useHistory()
   const [getShow, getSetShow] = useState(false)
@@ -45,10 +45,14 @@ function Navbar ({ OpenModal, isLogin, userinfo, setChatList }) {
         if (err) console.log(err)
       })
   }
-  const chatInfo = () => {
-    axios.get(`${process.env.REACT_APP_API_URL}/chat/message`)
+  const chatList = async () => {
+    await axios.get('http://localhost:80/chat/room', {
+      headers: {
+        Authorization: `Bearer ${localStorage.accessToken}`
+      }
+    })
       .then(data => {
-        setChatList(data.data.data)
+        setUserRoom(data.data)
       })
   }
 
@@ -62,7 +66,7 @@ function Navbar ({ OpenModal, isLogin, userinfo, setChatList }) {
         <div className={getShow ? 'navbar_link active' : 'navbar_link'}>
           <Link to='/main'>러너 모집</Link>
           <Link to='/create'>글쓰기</Link>
-          <Link to='/chat' onClick={chatInfo}>채팅하기</Link>
+          <Link to='/chats' onClick={chatList}>채팅하기</Link>
           {isLogin
             ? <><Link to='/mypage'>마이페이지</Link><div onClick={logout}>로그아웃 </div></>
             : <div onClick={OpenModal}>로그인</div>}
