@@ -3,6 +3,7 @@ const controllers = require('../controllers')
 const upload = require('../modules/multer')
 
 // post
+// test
 router.get('/:userid', controllers.mypost) // 개별 게시물
 router.get('/', controllers.ourpost) // 전체 게시물
 router.post('/', upload.single('postimage'), controllers.post) // 게시물 작성
