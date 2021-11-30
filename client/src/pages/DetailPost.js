@@ -10,7 +10,6 @@ import axios from 'axios'
 import { useHistory } from 'react-router'
 function DetailPost ({ post, userinfo, isLogin, OpenModal }) {
   const [comments, setComments] = useState([])
-
   const history = useHistory()
   const date = post.createdAt.slice(0, 10)
   useEffect(() => {
@@ -23,7 +22,7 @@ function DetailPost ({ post, userinfo, isLogin, OpenModal }) {
       .then((data) => {
         // if (data.data.comments.length !== 0) {
         setComments(data.data.comments)
-        console.log(data)
+
         // }
       })
   }
@@ -38,6 +37,14 @@ function DetailPost ({ post, userinfo, isLogin, OpenModal }) {
       .then((data) => history.push('/main'))
   }
 
+  const chattingHandle = () => {
+    axios.post(`${process.env.REACT_APP_API_URL}/chat/room`, { pairId: post.user.userId }, {
+      headers: {
+        Authorization: `Bearer ${localStorage.accessToken}`
+      }
+    }).then((data) => console.log(data))
+  }
+
   return (
     <div className='detail_container'>
       <h1 className='detail_title'>{post.title}</h1>
@@ -50,6 +57,7 @@ function DetailPost ({ post, userinfo, isLogin, OpenModal }) {
           <div className='detail_span_block'>
             <Avatar sx={{ bgcolor: red[500] }} aria-label='your image' src={post.user.image_url} />
             <span>{post.user.nickname}</span>
+            <i className='fas fa-comment-dots' onClick={chattingHandle} />
           </div>
           <span>{date}</span>
         </div>
@@ -57,7 +65,7 @@ function DetailPost ({ post, userinfo, isLogin, OpenModal }) {
           {post.userId === userinfo.id
             ? <div className='btn_btn'><div onClick={() => history.push('/editpost')}>수정</div>
               <div onClick={deletePost}>삭제</div>
-              </div>
+            </div>
             : null}
         </div>
         <div className='detail_text'>{post.text}</div>
