@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /home/ubuntu/RunnersHigh/server
+cd /home/ubuntu/RunnersHigh-1/server
 npm install
 npm install pm2@latest -g
 sudo apt-get update
