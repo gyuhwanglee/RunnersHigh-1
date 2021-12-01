@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ubuntu/RunnersHigh
+    destination: /home/ubuntu/RunnersHigh-1
 
 hooks:
   ApplicationStop:
