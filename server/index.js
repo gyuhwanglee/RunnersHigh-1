@@ -43,7 +43,7 @@ io.on('connection', (socket) => {
 })
 
 app.get('/', (req, res) => {
-  res.send('Hello RunnersHigh')
+  res.send('Hello RunnersHigh!')
 })
 
 app.use('/users', userRoute)
