@@ -10,7 +10,8 @@ module.exports = async (req, res) => {
     } else {
       await chatting.create({
         userId: accessTokenData.id,
-        chat: req.body.chat
+        chat: req.body.chat,
+        roomId: req.body.roomId
       })
       res.status(201).send({ message: '채팅메시지가 저장되었습니다' })
     }

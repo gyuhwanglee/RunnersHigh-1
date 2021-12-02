@@ -46,7 +46,7 @@ function Navbar ({ OpenModal, isLogin, userinfo, setUserRoom }) {
       })
   }
   const chatList = async () => {
-    await axios.get('http://localhost:80/chat/room', {
+    await axios.get(`${process.env.REACT_APP_API_URL}/chat/room`, {
       headers: {
         Authorization: `Bearer ${localStorage.accessToken}`
       }

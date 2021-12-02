@@ -59,7 +59,7 @@ function App () {
           <Route
             exact
             path='/detailpost'
-            render={() => <DetailPost post={post} userinfo={userinfo} isLogin={isLogin} OpenModal={OpenModal} />}
+            render={() => <DetailPost post={post} userinfo={userinfo} isLogin={isLogin} OpenModal={OpenModal} setUserRoom={setUserRoom} />}
           />
 
           <Route path='/loginmodal' exact component={LoginModal} />

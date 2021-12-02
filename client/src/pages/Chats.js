@@ -6,65 +6,76 @@ import SelectUser from '../components/SelectUser'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import io from 'socket.io-client'
-function Chats ({ userRoom }) {
+function Chats ({ userRoom, userinfo }) {
   const [select, setSelect] = useState(false)
   const [chattings, setChattings] = useState([])
   const [msg, setMsg] = useState('')
-  const socketRef = useRef()
   const urlArray = window.location.href.split('/')
   const currentRoom = Number(urlArray[urlArray.length - 1])
+  const socketRef = useRef()
 
   useEffect(() => {
-    socketRef.current = io.connect('http://localhost:80')
-    socketRef.current.on('message', (msg) => {
-      setChattings([...chattings, msg])
-    })
+    socketRef.current = io.connect(`${process.env.REACT_APP_API_URL}`)
+    return () => socketRef.current.disconnect()
   }, [])
 
-  const selectuser = async (roomId) => {
-    const chatList = await axios.get(`http://localhost:80/chat/message/${roomId}`, {
+  useEffect(() => {
+    socketRef.current.on('message', (data) => {
+      console.log(data)
+      setChattings([...chattings, data])
+    })
+  }, [chattings])
+
+  const selectUser = async (roomId) => {
+    const chatList = await axios.get(`${process.env.REACT_APP_API_URL}/chat/message/${roomId}`, {
       headers: {
-        Authorization: `Bearer ${localStorage.accessToken}`
+        Authorization: `Bearer ${localStorage.accessToken}`,
+        'Content-Type': 'application/json'
       }
     })
-    await socketRef.current.emit('joinRoom', { roomId: roomId })
-    await socketRef.current.on(roomId, (message) => {
+    await socketRef.current.emit('joinRoom', { roomId })
+    await socketRef.current.on('joinRoom', message => {
       console.log(message)
     })
-    await setChattings(chatList.data.data)
+    await setChattings([...chatList.data.data])
     await setSelect(true)
   }
 
-  console.log(chattings)
-
-  const render = () => {
+  const chattingRender = () => {
     return (
       chattings.map((el, idx) =>
         <div key={idx}>
-          {/* <div> {el.user.nickname} </div> */}
+          <div>{el.user.nickname}</div>
           <div className='chat_room_text'>{el.chat}</div>
         </div>
       )
     )
   }
-  const inputMsg = (e) => {
+
+  const inputHandler = (e) => {
     setMsg(e.target.value)
   }
-  const sendMsg = (e) => {
-    console.log('클릭')
-    socketRef.current.emit('message', { chat: msg, roomId: currentRoom })
-    setMsg('')
-  }
 
+  const sendMsg = async () => {
+    await socketRef.current.emit('message', { chat: msg, roomId: currentRoom, user: { nickname: userinfo.nickname } })
+    await axios.post(`${process.env.REACT_APP_API_URL}/chat/message`, { chat: msg, roomId: currentRoom },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.accessToken}`,
+          'Content-Type': 'application/json'
+        }
+      })
+    await setMsg('')
+  }
   return (
     <div className='chat_container'>
       <div className='chat_container2'>
         <div className='chat_sidebar'>
           {userRoom.map((el) =>
-            <Link to={`/chats/${el.roomId}`} onClick={(() => { selectuser(el.roomId) })} key={el.pairId}> {el.user.nickname} </Link>
+            <Link to={`/chats/${el.roomId}`} onClick={() => selectUser(el.roomId)} key={el.pairId}> {el.user.nickname} </Link>
           )}
         </div>
-        {select ? <ChattingList render={render} sendMsg={sendMsg} inputMsg={inputMsg} msg={msg} /> : <SelectUser />}
+        {select ? <ChattingList chattingRender={chattingRender} msg={msg} inputHandler={inputHandler} sendMsg={sendMsg} /> : <SelectUser />}
       </div>
     </div>
   )

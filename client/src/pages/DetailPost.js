@@ -8,7 +8,7 @@ import CommentInput from '../components/CommentInput'
 import axios from 'axios'
 
 import { useHistory } from 'react-router'
-function DetailPost ({ post, userinfo, isLogin, OpenModal }) {
+function DetailPost ({ post, userinfo, isLogin, OpenModal, setUserRoom }) {
   const [comments, setComments] = useState([])
   const history = useHistory()
   const date = post.createdAt.slice(0, 10)
@@ -31,7 +31,6 @@ function DetailPost ({ post, userinfo, isLogin, OpenModal }) {
       headers: {
         Authorization: `Bearer ${localStorage.accessToken}`,
         'Content-Type': 'application/json'
-
       }
     })
       .then((data) => history.push('/main'))
@@ -43,7 +42,17 @@ function DetailPost ({ post, userinfo, isLogin, OpenModal }) {
         Authorization: `Bearer ${localStorage.accessToken}`
       }
     })
-      .then((data) => history.push('/chat'))
+      .then((data) => history.push('/chats'))
+      .then(data => {
+        axios.get(`${process.env.REACT_APP_API_URL}/chat/room`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.accessToken}`
+          }
+        })
+          .then(data => {
+            setUserRoom(data.data)
+          })
+      })
   }
 
   return (
@@ -68,7 +77,7 @@ function DetailPost ({ post, userinfo, isLogin, OpenModal }) {
           {post.userId === userinfo.id
             ? <div className='btn_btn'><div onClick={() => history.push('/editpost')}>수정</div>
               <div onClick={deletePost}>삭제</div>
-            </div>
+              </div>
             : null}
         </div>
         <div className='detail_text'>{post.text}</div>
