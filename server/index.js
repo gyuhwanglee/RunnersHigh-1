@@ -29,12 +29,17 @@ io.on('connection', (socket) => {
   console.log('연결성공')
 
   socket.on('message', (info) => {
-    io.emit('message', info)
+    console.log(info)
+    io.to(`${info.roomId}`).emit('message', info)
   })
-  // socket.on('joinRoom', ({ roomId: id }) => {
-  //   socket.join(`${id}`)
-  //   io.to(`${id}`).emit('joinRoom', `${id}번방으로 입장했습니다`)
-  // })
+  socket.on('joinRoom', ({ roomId: id }) => {
+    socket.join(`${id}`)
+    io.to(`${id}`).emit('joinRoom', `${id}번방으로 입장했습니다`)
+  })
+
+  socket.on('disconnect', () => {
+    console.log('연결해제')
+  })
 
   // socket.on('leaveRoom', ({ roomId: id }) => {
   //   socket.leave(id)
