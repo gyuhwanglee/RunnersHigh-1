@@ -1,7 +1,12 @@
 .login_container {
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 60%;
 }
 
@@ -11,22 +16,34 @@ p {
 }
 
 .login_form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: 20px;
 }
+
 .login_form div {
   width: 100%;
 }
 
 .login_social {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
+
 .login_social div {
   background: url("./image/kakao_login_medium_narrow.png") no-repeat;
   background-position: center;
   margin: 0.5rem;
+  -webkit-transition: all 0.2s;
   transition: all 0.2s;
   outline: none;
   width: 100%;
@@ -36,4 +53,5 @@ p {
 .login_tosignup:hover {
   cursor: pointer;
   color: #a5eaf6;
-}/*# sourceMappingURL=login.css.map */
+}
+/*# sourceMappingURL=login.css.map */
