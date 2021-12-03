@@ -30,7 +30,6 @@ function Chat ({ chatList, setChatList, userinfo, isLogin, OpenModal }) {
   }
   const render = () => {
     return (
-
       chatList.map((el, idx) =>
         <div
           className={el.user.id === userinfo.id
@@ -55,7 +54,7 @@ function Chat ({ chatList, setChatList, userinfo, isLogin, OpenModal }) {
 
                 </div>
                 <div ref={messagesEndRef} />
-                </>
+              </>
               : <>
                 <div className='chat_room_image'>
                   <Avatar
@@ -70,7 +69,7 @@ function Chat ({ chatList, setChatList, userinfo, isLogin, OpenModal }) {
                 </div>
                 <div ref={messagesEndRef} />
 
-              </>}
+                </>}
           </div>
         </div>
       )
@@ -113,7 +112,7 @@ function Chat ({ chatList, setChatList, userinfo, isLogin, OpenModal }) {
                 onKeyPress={enterClick}
               />
               <button type='submit' onClick={sendMsg}>전송</button>
-              </div>
+            </div>
             : <div className='chat_room_post'>
               <input
                 type='text'
@@ -121,7 +120,7 @@ function Chat ({ chatList, setChatList, userinfo, isLogin, OpenModal }) {
                 onFocus
               />
               <button onClick={OpenModal}>로그인하기</button>
-              </div>}
+            </div>}
         </div>
       </div>
     </div>

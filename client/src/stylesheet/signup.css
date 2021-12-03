@@ -1,17 +1,28 @@
 .signup_container {
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 60%;
 }
 
 .signup_form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   margin: 20px;
 }
 
 .signup_tologin:hover {
   cursor: pointer;
   color: #a5eaf6;
-}/*# sourceMappingURL=signup.css.map */
+}
+/*# sourceMappingURL=signup.css.map */

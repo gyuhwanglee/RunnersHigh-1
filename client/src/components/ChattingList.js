@@ -10,6 +10,7 @@ function ChattingList ({ chattingRender, inputHandler, msg, sendMsg }) {
         <input onChange={inputHandler} value={msg} placeholder='채팅을 시작하세요' />
         <button onClick={sendMsg}>전송</button>
       </div>
+
     </div>
   )
 }
