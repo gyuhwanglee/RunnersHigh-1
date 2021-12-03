@@ -27,11 +27,12 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  flex-direction: column;
   width: 160px;
   height: 3rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
-          align-items: center;
+          align-items: center;  
 }
 
 .chat_sidebar div {
@@ -49,7 +50,7 @@
       justify-self: center;
   padding-left: 5px;
   color: black;
-  font-size: 25px;
+  font-size: 10px;
   text-decoration: none;
 }
 
