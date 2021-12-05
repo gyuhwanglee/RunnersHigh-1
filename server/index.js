@@ -32,9 +32,9 @@ io.on('connection', (socket) => {
     console.log(info)
     io.to(`${info.roomId}`).emit('message', info)
   })
-  socket.on('joinRoom', ({ roomId: id }) => {
+  socket.on('joinRoom', ({ roomId: id, nickname }) => {
     socket.join(`${id}`)
-    io.to(`${id}`).emit('joinRoom', `${id}번방으로 입장했습니다`)
+    io.to(`${id}`).emit('joinRoom', `${nickname}님이 ${id}번방으로 입장했습니다`)
   })
 
   socket.on('disconnect', () => {
@@ -58,3 +58,5 @@ app.use('/chat', chatRoute)
 server.listen(PORT, () => {
   console.log(`이 서버는 ${PORT}에서 실행중입니다.`)
 })
+
+module.exports = server

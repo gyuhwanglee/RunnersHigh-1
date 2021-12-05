@@ -54,7 +54,7 @@ function Chats ({ userRoom, userinfo }) {
         'Content-Type': 'application/json'
       }
     })
-    await socketRef.current.emit('joinRoom', { roomId })
+    await socketRef.current.emit('joinRoom', { roomId, nickname: userinfo.nickname })
     await socketRef.current.on('joinRoom', message => {
       console.log(message)
     })
@@ -79,7 +79,7 @@ function Chats ({ userRoom, userinfo }) {
                   </div>
                   <div className='chat_room_image_mine' />
                   <div ref={messagesEndRef} />
-                  </>
+                </>
                 : <>
                   <div className='chat_room_image'>
                     <Avatar
@@ -94,7 +94,7 @@ function Chats ({ userRoom, userinfo }) {
                   </div>
                   <div ref={messagesEndRef} />
 
-                  </>}
+                </>}
               <div ref={messagesEndRef} />
             </div>
           </div>
