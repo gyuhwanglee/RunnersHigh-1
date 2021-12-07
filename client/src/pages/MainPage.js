@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import PostListCard from '../components/PostListCard'
 import '../stylesheet/mainpage.css'
 import Footer from '../components/Footer'
@@ -35,6 +35,16 @@ function MainPage () {
   const postInfo = useSelector((state) => state.postReducer)
 
   const { posts } = postInfo
+  const [filterPost, setFilterPost] = useState(posts)
+  const filteredPost = (city) => {
+    if (city === '전체') {
+      return setFilterPost(posts)
+    }
+    const filter = posts.filter((el) => {
+      return el.location.split(' ')[0] === city
+    })
+    setFilterPost(filter)
+  }
   const getPosts = () => {
     axios.get(`${process.env.REACT_APP_API_URL}/posts`)
       .then((data) => {
@@ -45,7 +55,7 @@ function MainPage () {
 
   return (
     <>
-      <Category />
+      <Category filteredPost={filteredPost} />
       <div className='main_container'>
 
         {/* <div className='main_serch_div'>
@@ -53,7 +63,7 @@ function MainPage () {
           <button>검색</button>
         </div> */}
 
-        {posts.map((post) => <div className='main_section1 ' key={post.id}><PostListCard post={post} key={post.id} /></div>)}
+        {filterPost.map((post) => <div className='main_section1 ' key={post.id}><PostListCard post={post} key={post.id} /></div>)}
         {/* {posts.map((post) => <div className='main_section1 panel' key={post.id}><PostListCard post={post} key={post.id} /></div>)} */}
       </div>
       <Footer />
