@@ -7,8 +7,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
 import { useSelector, useDispatch } from 'react-redux'
 import axios from 'axios'
 import { setPosts } from '../redux/action'
+import Category from '../components/Category'
 function MainPage () {
-  gsap.registerPlugin(ScrollTrigger)
+  // gsap.registerPlugin(ScrollTrigger)
 
   let scrollTween
 
@@ -44,14 +45,16 @@ function MainPage () {
 
   return (
     <>
+      <Category />
       <div className='main_container'>
+
         {/* <div className='main_serch_div'>
           <input type='text' className='main_serch' placeholder='serch' />
           <button>검색</button>
         </div> */}
 
-        {posts.map((post) => <div className='main_section1 panel' key={post.id}><PostListCard post={post} key={post.id} /></div>)}
-
+        {posts.map((post) => <div className='main_section1 ' key={post.id}><PostListCard post={post} key={post.id} /></div>)}
+        {/* {posts.map((post) => <div className='main_section1 panel' key={post.id}><PostListCard post={post} key={post.id} /></div>)} */}
       </div>
       <Footer />
     </>

@@ -77,7 +77,7 @@ function DetailPost ({ post, userinfo, isLogin, OpenModal, setUserRoom }) {
           {post.userId === userinfo.id
             ? <div className='btn_btn'><div onClick={() => history.push('/editpost')}>수정</div>
               <div onClick={deletePost}>삭제</div>
-              </div>
+            </div>
             : null}
         </div>
         <div className='detail_text'>{post.text}</div>
