@@ -6,7 +6,7 @@ export const initialState = {
     nickname: '',
     image_url: ''
   },
-  posts:[],
-  post:null
+  posts: [],
+  post: null
 
 }

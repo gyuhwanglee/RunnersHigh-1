@@ -16,7 +16,10 @@
   height: 70%;
   display: flex;
 }
-
+.sidebar_container {
+  display: flex;
+  flex-direction: column;
+}
 .chat_sidebar {
   display: flex;
   // border: solid 2px $color-mainconcept-blue;
@@ -32,7 +35,7 @@
     justify-self: center;
     padding-left: 5px;
     color: black;
-    font-size: 25px;
+    font-size: 15px;
     text-decoration: none;
   }
 }
