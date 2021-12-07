@@ -1,10 +1,8 @@
 // 회원가입
-
 const { user } = require('../../models')
-
+const bcrypt = require('bcrypt')
 module.exports = async (req, res) => {
   const { email, nickname, password } = req.body
-
   if (!email || !nickname || !password) {
     res.status(422).send({ message: '이메일, 비밀번호, 닉네임 정보가 필요합니다' })
   }
@@ -16,9 +14,10 @@ module.exports = async (req, res) => {
       }
     })
     if (!userInfo) {
+      const hashPassword = bcrypt.hashSync(password, 10)
       await user.create({
         email: email,
-        password: password,
+        password: hashPassword,
         nickname: nickname,
         social_type: 'local',
         image_url: 'https://bucket-runners.s3.ap-northeast-2.amazonaws.com/1636790124906.jpeg'
