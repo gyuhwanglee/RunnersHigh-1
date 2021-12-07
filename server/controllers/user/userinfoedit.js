@@ -1,5 +1,6 @@
 // 회원정보 수정
 const { user } = require('../../models')
+const bcrypt = require('bcrypt')
 const { isAuthorized } = require('../../functions/token')
 
 module.exports = async (req, res) => {
@@ -26,7 +27,7 @@ module.exports = async (req, res) => {
       }
       if (req.body.password) {
         await user.update({
-          password: req.body.password
+          password: bcrypt.hashSync(req.body.password, 10)
         },
         { where: { id: accessTokenData.id } }
         )
