@@ -17,7 +17,9 @@ function Signup ({ ChangeSelect }) {
   } = useForm({ mode: 'onChange' })
 
   const dispatch = useDispatch()
-
+  // const checkPassword = () => {
+  //   const reg = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,10}$/
+  // }
   const onSubmit = (data) => {
     axios.post(`${process.env.REACT_APP_API_URL}/users/signup`, {
       email: data.email,
@@ -91,9 +93,9 @@ function Signup ({ ChangeSelect }) {
             id='password'
             {...register('password', {
               required: '비밀번호를 입력해주세요.',
-              minLength: {
-                value: 6,
-                message: '비밀번호는 최소 6자 이상입니다.'
+              pattern: {
+                value: /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,20}$/,
+                message: '비밀번호는 영문포함 최소 8자 이상 입니다.'
               }
             })}
           />
