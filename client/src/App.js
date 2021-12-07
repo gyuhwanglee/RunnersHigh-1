@@ -13,7 +13,6 @@ import MainPage from './pages/MainPage'
 import MyPage from './pages/MyPage'
 import Navbar from './components/Navbar'
 // import Footer from './components/Footer'
-
 import LoginModal from './components/LoginModal'
 import { useSelector } from 'react-redux'
 // import { setIsLogin } from './redux/action'
