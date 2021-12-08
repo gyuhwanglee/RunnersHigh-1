@@ -79,7 +79,7 @@ function Chats ({ userRoom, userinfo }) {
                   </div>
                   <div className='chat_room_image_mine' />
                   <div ref={messagesEndRef} />
-                </>
+                  </>
                 : <>
                   <div className='chat_room_image'>
                     <Avatar
@@ -94,7 +94,7 @@ function Chats ({ userRoom, userinfo }) {
                   </div>
                   <div ref={messagesEndRef} />
 
-                </>}
+                  </>}
               <div ref={messagesEndRef} />
             </div>
           </div>
@@ -126,7 +126,7 @@ function Chats ({ userRoom, userinfo }) {
               <Avatar
                 alt='Remy Sharp'
                 src={el.user.image_url}
-                sx={{ width: 35, height: 40 }}
+                sx={{ width: 45, height: 45 }}
               />
               <Link
                 to={`/chats/${el.roomId}`}

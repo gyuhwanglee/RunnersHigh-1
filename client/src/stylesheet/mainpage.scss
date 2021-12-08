@@ -1,5 +1,6 @@
+@import "./variables/variables.scss";
 .main_container {
-  // padding-top: 95px;
+  padding-top: 12rem;
   // display: flex;
   // justify-content: center;
   // align-items: center;
@@ -67,16 +68,47 @@
 }
 
 .category_container {
-  height: 15rem;
+  height: 13rem;
   width: 100%;
   padding-top: 95px;
-  position: relative;
+  position: absolute;
+  top: 0;
+  bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   list-style: none;
+  // box-shadow: inset 0 -15px 10px -15px #f0f0f0;
+
   li {
+    // background-color: white;
+    // box-shadow: -1px 4px 28px 0px rgba(0, 0, 0, 0.1);
     padding: 8px;
+    font-size: 20px;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    &:hover {
+      cursor: pointer;
+      color: $color-hovercolor-sky;
+      -webkit-transform: scale(1.1);
+      -moz-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+      -o-transform: scale(1.1);
+      transform: scale(2.1);
+    }
   }
 }
+// .category_wrap {
+//   display: flex;
+//   justify-content: center;
+//   width: 100%;
+// }
