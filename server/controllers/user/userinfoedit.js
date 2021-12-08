@@ -5,6 +5,7 @@ const { isAuthorized } = require('../../functions/token')
 
 module.exports = async (req, res) => {
   const accessTokenData = isAuthorized(req)
+  const hashPassword = await bcrypt.hashSync(req.body.password, 10)
   try {
     if (!accessTokenData) { // 토큰이 유효하지 않다면
       return res.status(401).send({ message: '유효하지 않은 토큰입니다' })
@@ -27,7 +28,7 @@ module.exports = async (req, res) => {
       }
       if (req.body.password) {
         await user.update({
-          password: bcrypt.hashSync(req.body.password, 10)
+          password: hashPassword
         },
         { where: { id: accessTokenData.id } }
         )

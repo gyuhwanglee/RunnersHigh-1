@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
       }
     })
     if (!userInfo) {
-      const hashPassword = bcrypt.hashSync(password, 10)
+      const hashPassword = await bcrypt.hashSync(password, 10)
       await user.create({
         email: email,
         password: hashPassword,
