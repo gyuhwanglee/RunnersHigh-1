@@ -13,7 +13,6 @@ import { red } from '@mui/material/colors'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
-
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router'
 import { setPost } from '../redux/action/index'
@@ -82,7 +81,7 @@ export default function PostListCard ({ post }) {
         </CardContent>
         <CardActions disableSpacing>
           <IconButton aria-label='add to favorites'>
-            <FavoriteIcon />
+            {/* <FavoriteIcon /> */}
 
           </IconButton>
           <div>만남장소 : {post.location}</div>

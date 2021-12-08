@@ -1,4 +1,5 @@
 .main_container {
+  padding-top: 12rem;
   width: 100%;
   background: url("./image/circle-scatter-3.png") no-repeat;
   background-size: cover;
@@ -48,10 +49,12 @@
 }
 
 .category_container {
-  height: 15rem;
+  height: 13rem;
   width: 100%;
   padding-top: 95px;
-  position: relative;
+  position: absolute;
+  top: 0;
+  bottom: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -68,5 +71,16 @@
 
 .category_container li {
   padding: 8px;
+  font-size: 20px;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
-/*# sourceMappingURL=mainpage.css.map */
+
+.category_container li:hover {
+  cursor: pointer;
+  color: #a5eaf6;
+  -webkit-transform: scale(1.1);
+  transform: scale(2.1);
+}

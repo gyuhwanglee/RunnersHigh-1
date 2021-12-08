@@ -13,7 +13,7 @@ import { withRouter } from 'react-router-dom'
 import axios from 'axios'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
-import { setUserinfo, setPosts } from '../redux/action'
+import { setUserinfo, setPosts, setIsLogin } from '../redux/action'
 
 function MyPage ({ userinfo, posts }) {
   const dispatch = useDispatch()
@@ -36,6 +36,20 @@ function MyPage ({ userinfo, posts }) {
     })
       .then((res) => {
         dispatch(setUserinfo(res.data.data))
+      })
+  }
+
+  const delectUser = () => {
+    axios.delete(`${process.env.REACT_APP_API_URL}/users/userinfo`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.accessToken}`
+      }
+    })
+      .then((data) => {
+        dispatch(setUserinfo({}))
+        dispatch(setIsLogin(false))
+        localStorage.clear()
+        history.push('/')
       })
   }
 
@@ -125,8 +139,8 @@ function MyPage ({ userinfo, posts }) {
               id='password'
               {...register('password', {
                 required: '비밀번호를 입력해주세요.',
-                minLength: {
-                  value: 6,
+                pattern: {
+                  value: /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,20}$/,
                   message: '비밀번호는 최소 6자 이상입니다.'
                 }
               })}
@@ -149,7 +163,7 @@ function MyPage ({ userinfo, posts }) {
             {errors.confirm_password && <p>{errors.confirm_password.message}</p>}
             <span className='mypage_confirmEdit'>
               <button type='submit'>수정완료</button>
-              <button>회원탈퇴</button>
+              <button onClick={delectUser}>회원탈퇴</button>
             </span>
 
           </div>
